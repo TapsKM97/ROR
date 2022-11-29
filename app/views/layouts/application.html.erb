@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SecondProject</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+  <p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
+  <div class="content">
+		<div class="header">
+			<div class="top_info">
+						
+
+			</div>
+			<div class="logo">
+				
+      <h1><a href="#" title="Centralized Internet Services"><span class="dark">About</span> 
+        Myproject</a></h1>
+			</div>
+		</div>
+    <div class="search_field">
+			<form method="post" action="?">
+				<div class="search_form">
+				<p>Search the Web: <input type="text" name="search" class="search" /> <input type="submit" value="Search" class="submit" /></p>
+				</div>
+			</form>
+		</div>
+		
+		<div class="bar">
+			<ul>
+				<li class="browse_category">Categories:</li>
+				<li><a href="#" accesskey="i">About me</a></li>
+				<li class="active">College</li>
+				<li><a href="#" accesskey="m">Address</a></li>
+				<li><a href="#" accesskey="p">Family</a></li>
+				<li><a href="#" accesskey="s">Qualifiaction</a></li>
+			</ul>
+		</div>
+			<% if notice %>
+  				<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+  				<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+  
+		
+    <%= yield %>
+	<hr\>
+    
+		
+		
+			<p><a href="#">Form</a> | <a href="#">Bootstrap</a><br />
+      &copy; Copyright 2022 My Project</p>
+		</div>
+	</div>
+	
+   
+  </body>
+</html>

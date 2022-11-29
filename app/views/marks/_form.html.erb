@@ -1,0 +1,41 @@
+<%= form_with(model: mark, local: true) do |form| %>
+  <% if mark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mark.errors.count, "error") %> prohibited this mark from being saved:</h2>
+
+      <ul>
+        <% mark.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :students_id %>
+    <%= form.text_field :students_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :math %>
+    <%= form.number_field :math %>
+  </div>
+
+  <div class="field">
+    <%= form.label :science %>
+    <%= form.number_field :science %>
+  </div>
+
+  <div class="field">
+    <%= form.label :english %>
+    <%= form.number_field :english %>
+  </div>
+
+  <div class="field">
+    <%= form.label :history %>
+    <%= form.number_field :history %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

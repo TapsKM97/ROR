@@ -1,0 +1,26 @@
+
+
+<p>
+  <strong>Math:</strong>
+  <%= @mark.math %>
+</p>
+
+<p>
+  <strong>Science:</strong>
+  <%= @mark.science %>
+</p>
+
+<p>
+  <strong>English:</strong>
+  <%= @mark.english %>
+</p>
+
+<p>
+  <strong>History:</strong>
+  <%= @mark.history %>
+</p>
+<strong>total:</strong>
+  <%= (@mark.math+@mark.science+@mark.history+@mark.english) %>
+
+<%= link_to 'Edit', edit_mark_path(@mark) %> |
+<%= link_to 'Back', marks_path %>
